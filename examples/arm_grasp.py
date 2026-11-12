@@ -8,7 +8,6 @@ import bosdyn.client.lease
 import bosdyn.client.util
 import bosdyn.geometry
 
-# from bosdyn.client.manipulation_api import ManipulationApiClient
 from bosdyn.client.estop import EstopClient
 from bosdyn.client.robot_command import RobotCommandClient, blocking_stand
 from bosdyn.client.robot_state import RobotStateClient
@@ -44,7 +43,6 @@ def arm_grasp(config):
     robot_state_client = robot.ensure_client(RobotStateClient.default_service_name)
     command_client = robot.ensure_client(RobotCommandClient.default_service_name)
     lease_client = robot.ensure_client(bosdyn.client.lease.LeaseClient.default_service_name)
-    manipulation_client = robot.ensure_client(ManipulationApiClient.default_service_name)
 
     with bosdyn.client.lease.LeaseKeepAlive(lease_client, must_acquire=True, return_at_exit=True):
         robot.logger.info('Powering on robot... This may take a several seconds.')
@@ -57,7 +55,9 @@ def arm_grasp(config):
         blocking_stand(command_client, timeout_sec=10)
         robot.logger.info('Robot standing.')
 
-        robot.logger.info('Ready to grasp.')
+        # Robot should be ready to use here.
+
+
 
         robot.power_off(cut_immediately=False, timeout_sec=20)
         assert not robot.is_powered_on(), 'Robot power off failed.'
