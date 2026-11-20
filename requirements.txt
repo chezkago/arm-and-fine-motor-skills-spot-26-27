@@ -1,0 +1,15 @@
+# Core Boston Dynamics Spot SDK packages
+bosdyn-client
+bosdyn-mission
+bosdyn-choreography-client
+bosdyn-orbit
+
+# Windows console & GUI dependencies for SDK example scripts (wasd.py, estop_gui.py, arm_wasd.py)
+windows-curses
+PyQt5
+qtpy
+
+# Common vision & math utilities for image/camera and arm-offset scripts
+numpy
+opencv-python
+Pillow

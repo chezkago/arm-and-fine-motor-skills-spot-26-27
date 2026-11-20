@@ -1,0 +1,12 @@
+{
+  "1": {
+    "type": "testing_info_only",
+    "recipient": "MLJ",
+    "destination": "Building 8, Room 52"
+  },
+  "2": {
+    "type": "grasp_handle",
+    "item": "Prototype Mail Carrier Handle",
+    "grasp_offset_xyz": [-0.145, 0.0, 0.038]
+  }
+}
